@@ -1,23 +1,51 @@
-var path = require('path')
-const express = require('express')
-const mockAPIResponse = require('./mockAPI.js')
+const dotenv = require('dotenv');
+dotenv.config();
+var path = require('path');
+const express = require('express');
+const request = require('request')
 
-const app = express()
+const app = express();
 
-app.use(express.static('dist'))
+app.use(express.static('dist'));
 
-console.log(__dirname)
+const apiKey = process.env.API_KEY;
 
-app.get('/', function (req, res) {
-    // res.sendFile('dist/index.html')
-    res.sendFile(path.resolve('src/client/views/index.html'))
+console.log(__dirname);
+
+/* Dependencies */
+const bodyParser = require('body-parser');
+/* Middleware*/
+//Configure express to use body-parser as middle-ware.
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+// Cors for cross origin allowance
+const cors = require('cors');
+// const { request } = require('http');
+app.use(cors());
+
+app.get('/', (req, res) => {
+    res.sendFile('dist/index.html')
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-    console.log('Example app listening on port 8080!')
+const port = 8081;
+app.listen(port, () => {
+    console.log(`Server is running on localhost: ${port}!`);
 })
 
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
+app.post('/test', (req, res) => {
+    const url = req.body.url;
+    getSentiment(url, apiKey, (data) => {
+        res.send(data);
+    });
 })
+
+const getSentiment = (url, key, callback) => {
+    request(`https://api.meaningcloud.com/sentiment-2.1?key=${key}&lang=en&url=${url}`, { json: true }, (err, res, body) => {
+        if (!err && res.statusCode == 200) {
+            callback(body);
+        }   else {
+            console.log(error);
+        }
+    });
+}

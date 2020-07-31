@@ -3,41 +3,59 @@
     <head>
         <meta charset="utf-8">
         <title>Test</title>
-        <link rel="stylesheet" href="/styles/resets.css">
+        <!-- <link rel="stylesheet" href="/styles/resets.css">
         <link rel="stylesheet" href="/styles/base.css">
         <link rel="stylesheet" href="/styles/header.css">
         <link rel="stylesheet" href="/styles/form.css">
-        <link rel="stylesheet" href="/styles/footer.css">
+        <link rel="stylesheet" href="/styles/footer.css"> -->
     </head>
 
     <body>
 
         <header>
-            <div class="">
-                Logo
+            <div class="title">
+                NLP - Sentiment Analysis
             </div>
-            <div class="">
-                navigation
+            <div class="navigation">
+                Navigation
             </div>
         </header>
 
         <main>
-            <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
+            <section class="form">
+                <form onsubmit="return handleSubmit(event)">
+                    <input id="name" type="text" name="input" value="" placeholder="Enter URL Here">
+                    <input class="button" type="submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
-            <section>
+            </section>
 
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
+            <section class="results">
+                <div>
+                    <strong>Sentiment Analysis Results</strong>
+                    <ul>
+                        <li id=polarity>Polarity:</li>
+                        <li id=agreement>Agreement:</li>
+                        <li id=subjectivity>Subjectivity:</li>
+                        <li id=confidence>Confidence:</li>
+                        <li id=irony>Irony:</li>
+                    </ul>
+                </div>
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p>Designed by John Doe</p>
         </footer>
+
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+           </script>
 
     </body>
 </html>

@@ -1,0 +1,22 @@
+$lightTan: #f2f3f0;
+$tan: #c9af98;
+$blue: #3a4660;
+$cream: #ed8a63;
+$brown: #845007;
+$brown2: #a16d25;
+
+footer {
+    background-color: $lightTan;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    p {
+        background-color: $blue;
+        color: $brown2;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
+}

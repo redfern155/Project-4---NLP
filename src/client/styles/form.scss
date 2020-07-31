@@ -1,0 +1,26 @@
+$lightTan: #f2f3f0;
+$tan: #c9af98;
+$blue: #3a4660;
+$cream: #ed8a63;
+$brown: #845007;
+
+form {
+    border: 1px solid #545454;
+    border-radius: 3px;
+    padding: 40px;
+    background-color: $blue;
+    text-align: center;
+}
+
+input {
+    padding: 5px 20px;
+    width: 100%;
+    line-height: 16px;
+    margin: 10px 0;
+}
+
+.button {
+    background-color: $tan;
+    color: $blue;
+    width: 100px;
+}

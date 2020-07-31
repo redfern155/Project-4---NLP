@@ -1,0 +1,49 @@
+$lightTan: #f2f3f0;
+$tan: #c9af98;
+$blue: #3a4660;
+$cream: #ed8a63;
+$brown: #845007;
+$brown2: #a16d25;
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: $tan;
+}
+
+main {
+    flex: 2;
+}
+
+section {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: $lightTan;
+    padding: 30px;
+}
+
+ul {
+    color: $lightTan;
+    text-align: left;
+    padding: 10px;
+
+    li {
+        padding: 10px;
+    }
+}
+
+.results {
+    div {
+        background-color: $blue;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+strong {
+    font-size: 2em;
+    padding: 10px;
+    color: $brown2;
+}

@@ -1,0 +1,27 @@
+$lightTan: #f2f3f0;
+$tan: #c9af98;
+$blue: #3a4660;
+$cream: #ed8a63;
+$brown: #845007;
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 40px;
+    background-color: $lightTan;
+    height: 100px;
+    color: $brown;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
